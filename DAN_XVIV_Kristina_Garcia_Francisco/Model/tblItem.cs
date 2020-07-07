@@ -22,6 +22,7 @@ namespace DAN_XVIV_Kristina_Garcia_Francisco.Model
     
         public int ItemID { get; set; }
         public string ItemName { get; set; }
+        public string Price { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tblShoppingCart> tblShoppingCarts { get; set; }

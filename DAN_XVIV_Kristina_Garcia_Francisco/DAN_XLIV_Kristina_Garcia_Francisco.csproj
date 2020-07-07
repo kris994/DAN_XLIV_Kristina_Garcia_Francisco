@@ -24,6 +24,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\DAN_XVIV_Kristina_Garcia_Francisco.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -65,9 +66,40 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Commands\RelayCommand.cs" />
+    <Compile Include="Helper\JMBGConverter.cs" />
+    <Compile Include="Helper\Validation.cs" />
+    <Compile Include="Model\Item.cs" />
+    <Compile Include="Model\OrderDB.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OrderDB.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\OrderDB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OrderDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\OrderDB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OrderDB.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\tblItem.cs">
+      <DependentUpon>OrderDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\tblOrder.cs">
+      <DependentUpon>OrderDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\tblShoppingCart.cs">
+      <DependentUpon>OrderDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\tblUser.cs">
+      <DependentUpon>OrderDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Service.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
+    <Compile Include="ViewModel\MainWindowViewModel.cs" />
     <Compile Include="View\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
@@ -96,33 +128,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\OrderDB.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>OrderDB.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\OrderDB.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>OrderDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\OrderDB.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>OrderDB.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Model\tblItem.cs">
-      <DependentUpon>OrderDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\tblOrder.cs">
-      <DependentUpon>OrderDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\tblShoppingCart.cs">
-      <DependentUpon>OrderDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\tblUser.cs">
-      <DependentUpon>OrderDB.tt</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -154,14 +159,16 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="DDL_DML\OrderDDL.sql" />
     <Content Include="Model\OrderDB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>OrderDB.Context.cs</LastGenOutput>
       <DependentUpon>OrderDB.edmx</DependentUpon>
+      <LastGenOutput>OrderDB.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Model\OrderDB.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

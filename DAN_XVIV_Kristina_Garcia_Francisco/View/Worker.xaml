@@ -4,9 +4,80 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DAN_XVIV_Kristina_Garcia_Francisco.View"
+        xmlns:c="clr-namespace:DAN_XVIV_Kristina_Garcia_Francisco.Helper"
         mc:Ignorable="d"
-        Title="Worker" Height="450" Width="800">
+        Title="Worker" Height="450" Width="500" Background="#5BCED0">
+    <Window.Resources>
+        <c:JMBGConverter x:Key="JMBGConverter" />
+    </Window.Resources>
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal">
+            <Button Width="80" Height="20" Name="btnLogoff" Content="Log Off"
+                    Command="{Binding Logoff, UpdateSourceTrigger=PropertyChanged}" Margin="20,4,4,4" FontWeight="Bold"/>
+        </StackPanel>
+        <Grid Grid.Column="1" Grid.Row="2" Height="auto" Width="auto">
+            <DataGrid Name="DataGridOrder" ItemsSource="{Binding PendingOrderList, UpdateSourceTrigger=PropertyChanged}"
+                      SelectedItem="{Binding ItemOrder, UpdateSourceTrigger=PropertyChanged}" HeadersVisibility="Column"
+                      AutoGenerateColumns="False" HorizontalGridLinesBrush="Black" BorderBrush="Black" Foreground="Black"
+                      FontWeight="Bold" Margin="20" CanUserAddRows="false" IsReadOnly="True">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Total Price" Binding="{Binding TotalPrice}"/>
+                    <DataGridTextColumn Header="User" Binding="{Binding UserID, Converter={StaticResource ResourceKey=JMBGConverter}}"/>
+                    <DataGridTextColumn Header="Date" Binding="{Binding OrderCreated}"/>
+                    <DataGridTextColumn Header="Status" Binding="{Binding OrderStatus}"/>
+
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Name="btnDeny" Content="Deny" Foreground="Red"
+                                Command="{Binding DataContext.Deny, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" 
+                                        Margin="4" FontWeight="Bold"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Name="btnAccept" Content="Accept" Foreground="Green"
+                                Command="{Binding DataContext.Accept, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" 
+                                        Margin="4" FontWeight="Bold"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+        <Grid Grid.Column="1" Grid.Row="3" Height="auto" Width="auto">
+            <DataGrid Name="DataGridAllOrders" ItemsSource="{Binding NonPendingOrderList, UpdateSourceTrigger=PropertyChanged}"
+                      SelectedItem="{Binding ItemOrder, UpdateSourceTrigger=PropertyChanged}" HeadersVisibility="Column"
+                      AutoGenerateColumns="False" HorizontalGridLinesBrush="Black" BorderBrush="Black" Foreground="Black"
+                      FontWeight="Bold" Margin="20" CanUserAddRows="false" IsReadOnly="True">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Total Price" Binding="{Binding TotalPrice}"/>
+                    <DataGridTextColumn Header="User" Binding="{Binding UserID, Converter={StaticResource ResourceKey=JMBGConverter}}"/>
+                    <DataGridTextColumn Header="Date" Binding="{Binding OrderCreated}"/>
+                    <DataGridTextColumn Header="Status" Binding="{Binding OrderStatus}"/>
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Name="btnDeleteOrder" Content="Delete Order"
+                                Command="{Binding DataContext.DeleteOrder, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" 
+                                        Margin="4" FontWeight="Bold"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
     </Grid>
 </Window>
