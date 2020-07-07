@@ -13,10 +13,10 @@ namespace DAN_XVIV_Kristina_Garcia_Francisco.Model
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class OrderDB : DbContext
+    public partial class OrderDBEntities : DbContext
     {
-        public OrderDB()
-            : base("name=OrderDB")
+        public OrderDBEntities()
+            : base("name=OrderDBEntities")
         {
         }
     

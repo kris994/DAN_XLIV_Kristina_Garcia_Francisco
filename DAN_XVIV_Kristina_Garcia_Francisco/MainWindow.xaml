@@ -5,8 +5,79 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DAN_XVIV_Kristina_Garcia_Francisco"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="Order" Height="auto" MaxHeight="450" Width="auto" MaxWidth="400" Background="#5BCED0">
+    <Grid Margin="0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal">
+            <Button Width="80" Height="20" Name="btnLogoff" Content="Log Off"
+                    Command="{Binding Logoff, UpdateSourceTrigger=PropertyChanged}" Margin="20,4,4,4" FontWeight="Bold"/>
+            <Button Width="80" Height="20" Name="btnOrder" Content="Order"
+                    Command="{Binding Order, UpdateSourceTrigger=PropertyChanged}" Margin="20,4,4,4" FontWeight="Bold"/>
+        </StackPanel>
+        <Grid Grid.Column="1" Grid.Row="2" Height="auto" Width="auto" Visibility="{Binding OrderVisibility}">
+            <DataGrid Name="DataGridOrder" ItemsSource="{Binding UserOrderList, UpdateSourceTrigger=PropertyChanged}"
+                      SelectedItem="{Binding ItemOrder, UpdateSourceTrigger=PropertyChanged}" HeadersVisibility="Column"
+                      AutoGenerateColumns="False" HorizontalGridLinesBrush="Black" BorderBrush="Black" Foreground="Black"
+                      FontWeight="Bold" Margin="20" CanUserAddRows="false" IsReadOnly="True">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Total Price" Binding="{Binding TotalPrice}" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="Date" Binding="{Binding OrderCreated}"/>
+                    <DataGridTextColumn Header="Status" Binding="{Binding OrderStatus}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+        <Grid Grid.Column="1" Grid.Row="3" Height="auto" Width="auto" Visibility="{Binding DelayVisibility}">
+            <DataGrid Name="DataGridItems" ItemsSource="{Binding ItemList, UpdateSourceTrigger=PropertyChanged}"
+                      SelectedItem="{Binding Item, UpdateSourceTrigger=PropertyChanged}" HeadersVisibility="Column"
+                      AutoGenerateColumns="False" HorizontalGridLinesBrush="Black" BorderBrush="Black" Foreground="Black"
+                      FontWeight="Bold" Margin="20" CanUserAddRows="false">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Name" Binding="{Binding ItemName}" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="Price" Binding="{Binding Price}" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="Amount" Binding="{Binding Amount, Mode=TwoWay,
+                        UpdateSourceTrigger=PropertyChanged}" IsReadOnly="False">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="HorizontalAlignment" Value="Center" />
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                        <DataGridTextColumn.CellStyle>
+                            <Style TargetType="DataGridCell">
+                                <Setter Property="BorderThickness" Value="1" />
+                                <Setter Property="BorderBrush" Value="Black" />
+                                <Setter Property="Margin" Value="5,5,5,5"/>
+                            </Style>
+                        </DataGridTextColumn.CellStyle>
+                    </DataGridTextColumn>
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Name="btnAdd" Content="Add"
+                                Command="{Binding DataContext.AddItem, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" 
+                                        Margin="4" FontWeight="Bold"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Name="btnRemove" Content="Remove All"
+                                Command="{Binding DataContext.RemoveItem, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" 
+                                        Margin="4" FontWeight="Bold"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
     </Grid>
 </Window>

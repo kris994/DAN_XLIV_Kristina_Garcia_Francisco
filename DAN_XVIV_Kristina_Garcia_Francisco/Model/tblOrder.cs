@@ -14,8 +14,8 @@ namespace DAN_XVIV_Kristina_Garcia_Francisco.Model
     
     public partial class tblOrder
     {
-        public int ShoppingCartID { get; set; }
-        public int TotalPrice { get; set; }
+        public int OrderID { get; set; }
+        public string TotalPrice { get; set; }
         public string OrderStatus { get; set; }
         public System.DateTime OrderCreated { get; set; }
         public Nullable<int> UserID { get; set; }

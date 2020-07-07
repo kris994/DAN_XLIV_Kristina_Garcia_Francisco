@@ -1,16 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DAN_XVIV_Kristina_Garcia_Francisco.ViewModel;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace DAN_XVIV_Kristina_Garcia_Francisco.View
 {
@@ -19,9 +8,13 @@ namespace DAN_XVIV_Kristina_Garcia_Francisco.View
     /// </summary>
     public partial class Worker : Window
     {
+        /// <summary>
+        /// Worker window
+        /// </summary>
         public Worker()
         {
             InitializeComponent();
+            this.DataContext = new MainWindowViewModel(this);
         }
     }
 }
