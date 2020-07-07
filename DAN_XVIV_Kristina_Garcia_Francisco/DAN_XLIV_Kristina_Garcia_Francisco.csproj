@@ -66,6 +66,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Commands\RelayCommand.cs" />
+    <Compile Include="Helper\ShoppingCartAmountConverter.cs" />
+    <Compile Include="Helper\ItemPriceConverter.cs" />
+    <Compile Include="Helper\ItemNameConverter.cs" />
     <Compile Include="Helper\JMBGConverter.cs" />
     <Compile Include="Helper\Validation.cs" />
     <Compile Include="Model\Item.cs" />

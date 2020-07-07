@@ -546,9 +546,9 @@ namespace DAN_XLIV_Kristina_Garcia_Francisco.ViewModel
                 if(Service.LoggedInUser.Count != 0)
                 {
                     // Empty Shopping Cart when exiting
-                    UserShoppingCartList.Clear();
-                    ShoppingCartList.RemoveAll(i => i.UserID == Service.LoggedInUser[0].UserID);
-                    service.EmptyShoppingCart(Service.LoggedInUser[0].UserID);
+                    //UserShoppingCartList.Clear();
+                    //ShoppingCartList.RemoveAll(i => i.UserID == Service.LoggedInUser[0].UserID);
+                    //service.EmptyShoppingCart(Service.LoggedInUser[0].UserID);
 
                     Service.LoggedInUser.RemoveAt(0);
                     main.Close();

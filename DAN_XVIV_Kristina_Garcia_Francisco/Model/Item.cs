@@ -1,5 +1,4 @@
-﻿using DAN_XLIV_Kristina_Garcia_Francisco;
-using DAN_XLIV_Kristina_Garcia_Francisco.ViewModel;
+﻿using DAN_XLIV_Kristina_Garcia_Francisco.ViewModel;
 
 namespace DAN_XLIV_Kristina_Garcia_Francisco.Model
 {
@@ -15,6 +14,10 @@ namespace DAN_XLIV_Kristina_Garcia_Francisco.Model
         {
             get
             {
+                if (amount <= 0)
+                {
+                    return 0;
+                }
                 return amount;
             }
             set
