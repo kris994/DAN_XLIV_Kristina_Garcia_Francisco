@@ -1,12 +1,12 @@
-﻿using DAN_XVIV_Kristina_Garcia_Francisco.Commands;
-using DAN_XVIV_Kristina_Garcia_Francisco.Model;
-using DAN_XVIV_Kristina_Garcia_Francisco.View;
+﻿using DAN_XLIV_Kristina_Garcia_Francisco.Commands;
+using DAN_XLIV_Kristina_Garcia_Francisco.Model;
+using DAN_XLIV_Kristina_Garcia_Francisco.View;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Controls;
 using System.Windows.Input;
 
-namespace DAN_XVIV_Kristina_Garcia_Francisco.ViewModel
+namespace DAN_XLIV_Kristina_Garcia_Francisco.ViewModel
 {
     class LoginViewModel : BaseViewModel
     {

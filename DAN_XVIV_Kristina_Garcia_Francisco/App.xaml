@@ -1,7 +1,7 @@
-﻿<Application x:Class="DAN_XVIV_Kristina_Garcia_Francisco.App"
+﻿<Application x:Class="DAN_XLIV_Kristina_Garcia_Francisco.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:DAN_XVIV_Kristina_Garcia_Francisco"
+             xmlns:local="clr-namespace:DAN_XLIV_Kristina_Garcia_Francisco"
              StartupUri="View/Login.xaml">
     <Application.Resources>
          

@@ -2,7 +2,7 @@
 using System.Globalization;
 using System.Windows.Data;
 
-namespace DAN_XVIV_Kristina_Garcia_Francisco.Helper
+namespace DAN_XLIV_Kristina_Garcia_Francisco.Helper
 {
     /// <summary>
     /// Convertes the id of the user to the jmbg

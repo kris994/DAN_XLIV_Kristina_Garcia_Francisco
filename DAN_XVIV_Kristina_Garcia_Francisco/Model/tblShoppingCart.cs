@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DAN_XVIV_Kristina_Garcia_Francisco.Model
+namespace DAN_XLIV_Kristina_Garcia_Francisco.Model
 {
     using System;
     using System.Collections.Generic;

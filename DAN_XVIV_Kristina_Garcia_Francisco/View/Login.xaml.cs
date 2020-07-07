@@ -1,7 +1,7 @@
-﻿using DAN_XVIV_Kristina_Garcia_Francisco.ViewModel;
+﻿using DAN_XLIV_Kristina_Garcia_Francisco.ViewModel;
 using System.Windows;
 
-namespace DAN_XVIV_Kristina_Garcia_Francisco.View
+namespace DAN_XLIV_Kristina_Garcia_Francisco.View
 {
     /// <summary>
     /// Interaction logic for Login.xaml
